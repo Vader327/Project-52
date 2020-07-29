@@ -2,7 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Duru+Sans' rel='stylesheet'>    
+        <link href='https://fonts.googleapis.com/css?family=Duru+Sans' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>    
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet'>
 
         <title>Origami Designs</title>
@@ -10,10 +11,23 @@
         <link href='style.css' rel='stylesheet'>
 
         <body>
+            <div id="sideMenu">
+                <button onclick="hideMenu()" id="closeMenu"><i class="fa fa-times fa-2x"></i></button>
+                <a href="#" target="_blank">About Us</a>
+                <a href="#" target="_blank">Follow Us</a>
+                <hr>
+                <a href="http://origami.me/camel/" target="_blank">Camel</a>
+                <a href="http://origami.me/chameleon/" target="_blank">Chameleon</a>
+                <a href="http://origami.me/pigeon/" target="_blank">Pigeon</a>
+                <a href="http://origami.me/teddy-bear/" target="_blank">Teddy Bear</a>
+                <a href="http://origami.me/panda/" target="_blank">Panda</a>
+                <a href="http://origami.me/flying-cicada/" target="_blank">Cicada</a>
+
+            </div>
             <div class="menu">
-                <a href="#" target="_blank"><i class="fa fa-bars fa-2x"></i></a>
+                <button onclick="showMenu()" id="menuButton"><i class="fa fa-bars fa-2x"></i></button>
                 <h1>Origami Designs</h1>
-                <a href="#" target="_blank"><button id="buttonLink">About Us</button></a>
+                <div></div>
             </div>
 
             <div class="grid">
@@ -78,5 +92,14 @@
                 </div>
             </div>
         </body>
+
+        <script>
+            function showMenu(){
+                document.getElementById("sideMenu").style.width = "250px";
+            }
+            function hideMenu(){
+                document.getElementById("sideMenu").style.width = "0px";
+            }
+        </script>
     </head>
 </html>
