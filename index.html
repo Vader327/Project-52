@@ -3,7 +3,8 @@
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Duru+Sans' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>    
+        <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>    
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet'>
 
         <title>Origami Designs</title>
@@ -12,7 +13,6 @@
 
         <body>
             <div id="sideMenu">
-                <button onclick="hideMenu()" id="closeMenu"><i class="fa fa-times fa-2x"></i></button>
                 <a href="#" target="_blank">About Us</a>
                 <a href="#" target="_blank">Follow Us</a>
                 <hr>
@@ -25,8 +25,13 @@
 
             </div>
             <div class="menu">
-                <button onclick="showMenu()" id="menuButton"><i class="fa fa-bars fa-2x"></i></button>
+                <button onclick="toggleMenu()" id="menuButton">
+                    <div id="first" class="firstUnactive"></div>
+                    <div id="second" class="secondUnactive"></div>
+                    <div id="third" class="thirdUnactive"></div>
+                </button>
                 <h1>Origami Designs</h1>
+                <p>Today, many people are attracted to the idea of learning how to fold origami figures because paper is a cheap craft supply. When origami was first practiced, however, it was a craft only for the elite. Japanese monks folded origami figures for religious purposes. As paper became more affordable, common people began making origami figures as gifts or creating folded cards and envelopes for their correspondence. Origami also started to be used as an educational tool, since the folding process involves many concepts that are relevant to the study of mathematics.</p>
                 <div></div>
             </div>
 
@@ -91,14 +96,35 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="bottom">
+                <a href="#" target="_blank">About Us</a>
+                <a href="#" target="_blank">Follow Us</a>               
+            </div>
+            
         </body>
 
         <script>
-            function showMenu(){
-                document.getElementById("sideMenu").style.width = "250px";
-            }
-            function hideMenu(){
-                document.getElementById("sideMenu").style.width = "0px";
+            function toggleMenu(){
+                var menuButton = document.getElementById("menuButton").style;
+                var sideMenu = document.getElementById("sideMenu").style;
+
+                document.getElementById("first").classList.toggle("firstActive");
+                document.getElementById("second").classList.toggle("secondActive");
+                document.getElementById("third").classList.toggle("thirdActive");
+
+                if(sideMenu.width !== "250px"){
+                    sideMenu.width = "250px";
+                    menuButton.marginLeft = "250px";
+                    menuButton.transform = "translateX(-50px) translateY(-30px)";
+                    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+                }
+                else{
+                    sideMenu.width = "0px";
+                    menuButton.marginLeft = "20px";
+                    menuButton.transform = "translate(0px)";
+                    document.getElementsByTagName("body")[0].style.overflow = "auto";
+                }
             }
         </script>
     </head>
